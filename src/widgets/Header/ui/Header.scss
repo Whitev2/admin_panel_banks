@@ -1,0 +1,21 @@
+@import '../../../shared/styles/index.scss';
+
+.Header {
+  height: 60px;
+  width: 100%;
+  background-color: $color-font-primary;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    color: $color-font-light !important;
+
+    @include onHover(color, white);
+  }
+}

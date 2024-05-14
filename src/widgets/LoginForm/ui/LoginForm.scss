@@ -1,0 +1,19 @@
+@import '../../../shared/styles/index.scss';
+
+.LoginForm {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  @include border;
+
+  &__btn-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__error {
+    @include errorMessage;
+  }
+}
