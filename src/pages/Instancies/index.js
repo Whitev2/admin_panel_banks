@@ -1,3 +1,3 @@
-import { InstanciesPage } from './ui/Instancies';
+import { InstanciesPage } from './ui/InstanciesPage';
 
 export { InstanciesPage };

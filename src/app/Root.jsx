@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import App from './ui/App.jsx';
 import { LoginPage } from '../pages/Login/index.js';
-import { InstanciesPage } from '../pages/Instancies/index.js';
 import { MachinesPage } from '../pages/Machines/index.js';
 import { AuthRequired } from '../features/AuthRequired/index.js';
+import { InstanciesPage } from '../pages/Instancies';
 
 export const Root = () => {
   return (

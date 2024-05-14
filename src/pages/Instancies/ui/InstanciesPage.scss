@@ -1,0 +1,68 @@
+@import '../../../shared/styles/index.scss';
+
+.InstanciesPage {
+  height: calc(100vh - $header-height);
+  display: grid;
+  grid-template-columns: 230px 1fr;
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    border-right: 2px solid $color-primary;
+    padding: 20px;
+    padding-top: 55px;
+    background-color: white;
+  }
+
+  &__main {
+    padding: 150px 40px 40px;
+  }
+
+  &__nav {
+    &-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid $color-font-primary;
+    background-color: white;
+
+    &-th {
+      padding: 10px;
+      border-collapse: collapse;
+      border: 2px solid $color-font-light;
+    }
+
+    &-td {
+      border-collapse: collapse;
+      border: 2px solid $color-font-light;
+      padding: 10px;
+
+      &:nth-child(2) {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__error {
+    @include errorMessage;
+  }
+
+  &__loading {
+    margin-top: 20px;
+    text-align: center;
+  }
+}

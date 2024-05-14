@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import './App.scss';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Header } from '../../widgets/Header';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../entities/User/store/userSlice';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch('');
+
+  useEffect(() => {
+    try {
+      const token = localStorage.getItem('access_token');
+      dispatch(setUser(token));
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   return (
     <div className="App">

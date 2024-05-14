@@ -3,19 +3,27 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import './LoginForm.scss';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../entities/User';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const { user, loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = async () => {
-    dispatch(loginUser({ login, password })).then((res) => console.log(res));
+    dispatch(loginUser({ login, password }));
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate('/instancies');
+    }
+  }, [user]);
 
   return (
     <Form className="LoginForm">
