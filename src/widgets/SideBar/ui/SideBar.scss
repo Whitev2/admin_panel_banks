@@ -1,0 +1,20 @@
+@import '../../../shared/styles/index.scss';
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  border-right: 2px solid $color-primary;
+  padding: 20px;
+  padding-top: 55px;
+  background-color: white;
+
+  &__nav {
+    &-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}

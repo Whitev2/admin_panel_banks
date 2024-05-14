@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAll } from './thunks';
+import * as responseHanldler from './responseHandlers.js';
 
 const initialState = {
   instancies: [],
@@ -13,18 +14,9 @@ export const instanceSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAll.pending, (state) => {
-      state.loading = true;
-      state.error = false;
-    });
-    builder.addCase(getAll.fulfilled, (state, action) => {
-      state.loading = false;
-      state.instancies = action.payload;
-    });
-    builder.addCase(getAll.rejected, (state) => {
-      state.loading = false;
-      state.error = 'Something went wrong....';
-    });
+    builder.addCase(getAll.pending, responseHanldler.getAll);
+    builder.addCase(getAll.fulfilled, responseHanldler.getAll);
+    builder.addCase(getAll.rejected, responseHanldler.getAll);
   },
 });
 

@@ -1,31 +1,11 @@
 @import '../../../shared/styles/index.scss';
 
 .InstanciesPage {
-  height: calc(100vh - $header-height);
-  display: grid;
-  grid-template-columns: 230px 1fr;
-
-  &__aside {
+  padding: 150px 40px 40px;
+  &__header {
     display: flex;
-    flex-direction: column;
-    gap: 60px;
-    border-right: 2px solid $color-primary;
-    padding: 20px;
-    padding-top: 55px;
-    background-color: white;
-  }
-
-  &__main {
-    padding: 150px 40px 40px;
-  }
-
-  &__nav {
-    &-item {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-start;
-    }
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__filters {
