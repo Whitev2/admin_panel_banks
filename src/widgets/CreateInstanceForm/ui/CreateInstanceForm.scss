@@ -1,0 +1,20 @@
+@import '../../../shared/styles/index.scss';
+
+.CreateInstanceForm {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  @include border;
+
+  &__btn-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__error {
+    @include errorMessage;
+  }
+}

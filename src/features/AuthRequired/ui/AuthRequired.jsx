@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 export const AuthRequired = ({ children }) => {
-  const { user } = useSelector((state) => state.user);
+  const token = localStorage.getItem('access_token');
 
-  if (!user) {
+  if (!token) {
     return <Navigate to="/" replace />;
   }
 

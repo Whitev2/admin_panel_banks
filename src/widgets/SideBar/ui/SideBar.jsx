@@ -1,16 +1,51 @@
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
+
 import './SideBar.scss';
+
 export const Sidebar = () => {
   return (
     <aside className="Sidebar">
       <h2>Admin Panel</h2>
 
       <nav className="Sidebar__nav">
-        <ul className="Sidebar__nav-list">
-          <li className="Sidebar__nav-item">
+        <nav className="Sidebar__nav-list">
+          <NavLink
+            to="projects"
+            className={({ isActive }) =>
+              cn('Sidebar__nav-item', {
+                'Sidebar__nav-item--active': isActive,
+              })
+            }
+          >
+            <img src="/icons/instancies.png" alt="instancies" />
+            Projects
+          </NavLink>
+
+          <NavLink
+            to="instancies"
+            className={({ isActive }) =>
+              cn('Sidebar__nav-item', {
+                'Sidebar__nav-item--active': isActive,
+              })
+            }
+          >
             <img src="/icons/instancies.png" alt="instancies" />
             Instancies
-          </li>
-        </ul>
+          </NavLink>
+
+          <NavLink
+            to="machines"
+            className={({ isActive }) =>
+              cn('Sidebar__nav-item', {
+                'Sidebar__nav-item--active': isActive,
+              })
+            }
+          >
+            <img src="/icons/instancies.png" alt="instancies" />
+            Machines
+          </NavLink>
+        </nav>
       </nav>
     </aside>
   );

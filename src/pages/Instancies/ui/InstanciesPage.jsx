@@ -1,13 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './InstanciesPage.scss';
 import * as instance from '../../../entities/Instance';
 import { InstanciesTable } from '../../../widgets/InstanciesTable';
+import { MyModal } from '../../../shared/ui/MyModal/MyModal';
+import { CreateInstanceForm } from '../../../widgets/CreateInstanceForm';
 
 export const InstanciesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [modalShow, setModalShow] = useState(false);
   const name = searchParams.get('name') || '';
   const host = searchParams.get('host') || '';
   const status = searchParams.get('status') || '';
@@ -34,7 +37,9 @@ export const InstanciesPage = () => {
     <div className="InstanciesPage">
       <header className="InstanciesPage__header">
         <h1>Instance Information</h1>
-        <Button variant="primary">Create</Button>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Create
+        </Button>
       </header>
 
       <main>
@@ -78,6 +83,14 @@ export const InstanciesPage = () => {
           <p className="InstanciesPage__loading">There is no instancies</p>
         )}
       </footer>
+
+      <MyModal
+        show={modalShow}
+        title="Create instance"
+        onHide={() => setModalShow(false)}
+      >
+        <CreateInstanceForm />
+      </MyModal>
     </div>
   );
 };

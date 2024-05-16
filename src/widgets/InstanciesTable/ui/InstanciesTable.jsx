@@ -1,6 +1,7 @@
 import { Form } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import './InstanciesTable.scss';
+import { Link } from 'react-router-dom';
 
 export const InstanciesTable = ({ instancies }) => {
   const { loading, error } = useSelector((state) => state.instance);
@@ -44,8 +45,10 @@ export const InstanciesTable = ({ instancies }) => {
                     <Form.Check />
                   </Form>
                 </td>
-                <td className="InstanciesTable__td">{inst.name}</td>
-                <td className="InstanciesTable__td">???</td>
+                <td className="InstanciesTable__td">
+                  <Link to={`/instance/${inst.id}`}>{inst.name}</Link>
+                </td>
+                <td className="InstanciesTable__td">{inst.host}</td>
                 <td className="InstanciesTable__td">{inst.worked_machines}</td>
                 <td className="InstanciesTable__td">{inst.stopped_machines}</td>
                 <td className="InstanciesTable__td">
