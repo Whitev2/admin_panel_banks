@@ -1,18 +1,14 @@
 export const getAll = (state, action) => {
   switch (action.type) {
-    case 'instance/getAll/pending':
+    case 'machine/getAll/pending':
       state.loading = true;
       state.error = '';
       break;
-    case 'instance/getAll/fulfilled':
+    case 'machine/getAll/fulfilled':
       state.loading = false;
-      if (action.payload) {
-        state.instancies = action.payload;
-      } else {
-        state.error = 'Something went wrong+....';
-      }
+      state.machines = action.payload;
       break;
-    case 'instance/getAll/rejected':
+    case 'machine/getAll/rejected':
       state.loading = false;
       state.error = action.error.message;
       break;

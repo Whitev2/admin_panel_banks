@@ -7,6 +7,7 @@ import { AuthRequired } from '../features/AuthRequired';
 import { InstanciesPage } from '../pages/Instancies';
 import { ProjectsPage } from '../pages/Projects';
 import { InstancePage } from '../pages/InstancePage';
+import { MachinePage } from '../pages/MachinePage';
 
 export const Root = () => {
   return (
@@ -33,13 +34,23 @@ export const Root = () => {
           />
 
           <Route
-            path="/machines"
+            path="/instance/:id/machines"
             element={
               <AuthRequired>
                 <MachinesPage />
               </AuthRequired>
             }
           />
+
+          <Route
+            path="/instance/:id/machine/:machine_id"
+            element={
+              <AuthRequired>
+                <MachinePage />
+              </AuthRequired>
+            }
+          />
+
           <Route
             path="/projects"
             element={

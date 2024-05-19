@@ -1,4 +1,4 @@
-import { LoginForm } from '../../../widgets/LoginForm';
+import { LoginForm } from '../../../widgets/Forms/LoginForm';
 import './LoginPage.scss';
 
 export const LoginPage = () => {

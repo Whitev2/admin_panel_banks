@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { login } from '../../widgets/LoginForm';
 
 export const httpClient = axios.create({
   baseURL: 'http://92.118.56.68',
@@ -29,9 +28,10 @@ async function onResponseError(error) {
     throw error;
   }
 
-  try {
-    throw error;
-  } catch (error) {
-    throw error;
-  }
+  // try {
+  throw error;
+  // }
+  // catch (error) {
+  //   throw error;
+  // }
 }

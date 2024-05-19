@@ -1,7 +1,7 @@
 import { httpClient } from '../../../app/configs/httpCondig';
 
-export const getAll = async () => {
-  return httpClient.get('/machine/list');
+export const getAll = async (id) => {
+  return httpClient.get(`/machine/list?instance_id=${id}`);
 };
 export const getAvailble = async () => {
   return httpClient.get('/machine/available');

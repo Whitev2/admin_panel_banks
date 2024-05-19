@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as instance from '../api/machineApi';
+import * as machine from '../api/machineApi';
 
 export const getAll = createAsyncThunk(
   'machine/getAll',
-  (data, { rejectWithValue }) => {
+  (id, { rejectWithValue }) => {
     try {
-      return instance.getAll();
+      return machine.getAll(id);
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -16,7 +16,7 @@ export const create = createAsyncThunk(
   'machine/create',
   (data, { rejectWithValue }) => {
     try {
-      return instance.create(data);
+      return machine.create(data);
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -27,7 +27,7 @@ export const getOne = createAsyncThunk(
   'machine/getOne',
   (id, { rejectWithValue }) => {
     try {
-      return instance.getOne(id);
+      return machine.getOne(id);
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -38,7 +38,7 @@ export const update = createAsyncThunk(
   'machine/update',
   (data, { rejectWithValue }) => {
     try {
-      return instance.update(data);
+      return machine.update(data);
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

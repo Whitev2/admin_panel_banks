@@ -3,12 +3,12 @@ import './Header.scss';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../../entities/User/store/userSlice';
+import { useLogoutUser } from '../../../entities/User';
 
 function Header() {
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const logout = useLogoutUser();
 
   return (
     <div className="Header">
@@ -43,7 +43,7 @@ function Header() {
                 <Nav.Link
                   className="Header__link"
                   eventKey="/"
-                  onClick={() => dispatch(logout())}
+                  onClick={() => logout()}
                 >
                   Logout
                 </Nav.Link>

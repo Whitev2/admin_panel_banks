@@ -16,3 +16,45 @@
   color: rgb(192 13 13);
   margin: 0;
 }
+
+@mixin table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid $color-font-primary;
+  background-color: white;
+
+  &__th {
+    padding: 10px;
+    border-collapse: collapse;
+    border: 2px solid $color-font-light;
+  }
+
+  &__td {
+    border-collapse: collapse;
+    border: 2px solid $color-font-light;
+    padding: 10px;
+
+    &:nth-child(2) {
+      color: $color-primary;
+    }
+  }
+}
+
+@mixin form {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  @include border;
+
+  &__btn-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__error {
+    @include errorMessage;
+  }
+}
