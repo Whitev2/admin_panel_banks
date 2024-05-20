@@ -57,7 +57,7 @@ export const create = (state, action) => {
       break;
     case 'project/create/fulfilled':
       state.loading = false;
-      state.projects = [action.payload, ...state.instancies];
+      state.projects = [action.payload, ...state.projects];
       break;
     case 'project/create/rejected':
       state.loading = false;
@@ -65,24 +65,3 @@ export const create = (state, action) => {
       break;
   }
 };
-
-// export const remove = (state, action) => {
-//   switch (action.type) {
-//     case 'project/create/pending':
-//       state.loading = true;
-//       state.error = false;
-//       break;
-//     case 'project/create/fulfilled':
-//       state.loading = false;
-//       if (action.payload) {
-//         state.instancies = [action.payload, ...state.instancies];
-//       } else {
-//         state.error = 'Something went wrong....';
-//       }
-//       break;
-//     case 'project/create/rejected':
-//       state.loading = false;
-//       state.error = 'Something went wrong....';
-//       break;
-//   }
-// };

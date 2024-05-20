@@ -9,8 +9,8 @@ export const getOne = async (id) => {
 export const create = async (data) => {
   return httpClient.post('/project/create', data);
 };
-export const update = async (data) => {
-  return httpClient.put('/project/update', data);
+export const update = async ({ id, data }) => {
+  return httpClient.post(`/project/update?project_id=${id}`, data);
 };
 export const remove = async () => {
   return httpClient.delete('/project/delete');

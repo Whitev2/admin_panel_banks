@@ -42,9 +42,9 @@ export const ProjectsPage = () => {
       <footer>
         {!loading && error && <p className="ProjectsPage__error">{error}</p>}
         {loading && (
-          <p className="ProjectsPage__loading">
+          <div className="ProjectsPage__loading">
             <MyLoader />
-          </p>
+          </div>
         )}
         {!loading && !error && !projects.length && (
           <p className="ProjectsPage__loading">There is no instancies</p>

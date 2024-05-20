@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAll, create, update, getOne } from './thunks.js';
 import * as responseHanldler from './responseHandlers.js';
+import { action } from '../index.js';
 
 const initialState = {
   projects: [],
@@ -19,6 +20,10 @@ export const projectSlice = createSlice({
 
     setError: (state, action) => {
       state.error = action.payload;
+    },
+
+    setProject: (state, action) => {
+      state.project = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -40,6 +45,6 @@ export const projectSlice = createSlice({
   },
 });
 
-export const { clearError, setError } = projectSlice.actions;
+export const { clearError, setError, setProject } = projectSlice.actions;
 
 export default projectSlice.reducer;

@@ -2,4 +2,8 @@
 
 .ProjectsTable {
   @include table;
+
+  &__td--name {
+    cursor: pointer;
+  }
 }
