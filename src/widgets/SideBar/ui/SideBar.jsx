@@ -34,7 +34,7 @@ export const Sidebar = () => {
             Instancies
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             to="machines"
             className={({ isActive }) =>
               cn('Sidebar__nav-item', {
@@ -44,7 +44,7 @@ export const Sidebar = () => {
           >
             <img src="/icons/instancies.png" alt="instancies" />
             Machines
-          </NavLink>
+          </NavLink> */}
         </nav>
       </nav>
     </aside>

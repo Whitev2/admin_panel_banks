@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 import './MachinePage.scss';
-import { MyLoader } from '../../../shared/ui/MyLoader/Myloader';
 import { MachineErrorTable } from '../../../widgets/Tables/MachineErrorTable';
 import { MachineInfoTable } from '../../../widgets/Tables/MachineInfoTable';
 import { MachineLogTable } from '../../../widgets/Tables/MachineLogTable';
+import { MyLoader } from '../../../shared/ui';
 
 export const MachinePage = () => {
   const [table, setTable] = useState('Transactions');

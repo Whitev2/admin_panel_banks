@@ -6,7 +6,7 @@ import * as Instance from '../../../entities/Instance';
 import { Button } from 'react-bootstrap';
 import { MyModal } from '../../../shared/ui/MyModal/MyModal';
 import { UpdateInstanceForm } from '../../../widgets/Forms/UpdateInstanceForm';
-import { MyLoader } from '../../../shared/ui/MyLoader/Myloader';
+import { MyLoader } from '../../../shared/ui';
 
 export const InstancePage = () => {
   const navigate = useNavigate();

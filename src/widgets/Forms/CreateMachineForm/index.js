@@ -1,3 +1,2 @@
-import { CreateMachineForm } from './ui/CreateMachineForm';
-
+import CreateMachineForm from './ui/CreateMachineForm';
 export { CreateMachineForm };

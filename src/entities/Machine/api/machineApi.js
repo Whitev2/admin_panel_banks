@@ -12,7 +12,8 @@ export const getOne = async (id) => {
 };
 
 export const create = async (data) => {
-  return httpClient.post('machinee/create', data);
+  console.log(data);
+  return httpClient.post('machine/create', data);
 };
 
 export const createLog = async (data) => {

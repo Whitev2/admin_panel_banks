@@ -8,6 +8,9 @@ import * as machine from '../../../entities/Machine';
 import { MachineFilters } from './Filters/MachineFilters';
 import { MachinesTable } from '../../../widgets/Tables/MachinesTable';
 import { useLogoutUser } from '../../../entities/User';
+import { MyLoader } from '../../../shared/ui';
+import { CreateMachineForm } from '../../../widgets/Forms/CreateMachineForm';
+import * as Instance from '../../../entities/Instance';
 
 export const MachinesPage = () => {
   const { id } = useParams();
@@ -16,6 +19,10 @@ export const MachinesPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logout = useLogoutUser();
+
+  useEffect(() => {
+    dispatch(Instance.getOne(id));
+  }, []);
 
   useEffect(() => {
     dispatch(machine.getAll(id))
@@ -28,8 +35,8 @@ export const MachinesPage = () => {
   }, []);
 
   return (
-    <div className="InstanciesPage">
-      <header className="InstanciesPage__header">
+    <div className="MachinesPage">
+      <header className="MachinesPage__header">
         <h1>Machine Information</h1>
         <Button variant="primary" onClick={() => setModalShow(true)}>
           Create
@@ -43,20 +50,23 @@ export const MachinesPage = () => {
       </main>
 
       <footer>
-        {!loading && error && <p className="InstanciesPage__error">{error}</p>}
-        {loading && <p className="InstanciesPage__loading">Loaging...</p>}
+        {!loading && error && <p className="MachinesPage__error">{error}</p>}
+        {loading && (
+          <div className="MachinesPage__loading">
+            <MyLoader />
+          </div>
+        )}
         {!loading && !error && !machines.length && (
-          <p className="InstanciesPage__loading">There is no instancies</p>
+          <p className="MachinesPage__loading">There is no machines</p>
         )}
       </footer>
 
       <MyModal
         show={modalShow}
-        title="Create instance"
+        title="Create machine"
         onHide={() => setModalShow(false)}
       >
-        {/* <CreateInstanceForm /> */}
-        create machine form
+        <CreateMachineForm />
       </MyModal>
     </div>
   );
