@@ -1,10 +1,13 @@
 {
+  "homepage": "https://boytrend0108.github.io/admin-panel_max/",
   "name": "admin_panel_max",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -14,6 +17,7 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",
+    "gh-pages": "^6.1.1",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
