@@ -1,0 +1,9 @@
+@import '../../../../shared/styles/index.scss';
+
+.ProjectsTable {
+  @include table;
+
+  &__td--name {
+    cursor: pointer;
+  }
+}

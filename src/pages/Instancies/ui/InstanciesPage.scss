@@ -1,0 +1,49 @@
+@import '../../../shared/styles/index.scss';
+
+.InstanciesPage {
+  padding: 150px 40px 40px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid $color-font-primary;
+    background-color: white;
+
+    &-th {
+      padding: 10px;
+      border-collapse: collapse;
+      border: 2px solid $color-font-light;
+    }
+
+    &-td {
+      border-collapse: collapse;
+      border: 2px solid $color-font-light;
+      padding: 10px;
+
+      &:nth-child(2) {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__error {
+    @include errorMessage;
+  }
+
+  &__loading {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
