@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './ProjectsPage.scss';
 import * as project from '../../../entities/Project';
 import { MyModal } from '../../../shared/ui/MyModal/MyModal';
+import { MyLoader } from '../../../shared/ui';
 import { useLogoutUser } from '../../../entities/User';
-import { MyLoader } from '../../../shared/ui/MyLoader/Myloader';
-import './ProjectsPage.scss';
 import { ProjectsTable } from '../../../widgets/Tables/ProjectsTable';
 import { CreateProjectForm } from '../../../widgets/Forms/CreateProjectForm/ui/CreateProjectForm';
 

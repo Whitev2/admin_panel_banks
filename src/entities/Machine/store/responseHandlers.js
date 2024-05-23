@@ -5,6 +5,7 @@ export const getAll = (state, action) => {
       state.error = '';
       break;
     case 'machine/getAll/fulfilled':
+      console.log(action);
       state.loading = false;
       state.machines = action.payload;
       break;

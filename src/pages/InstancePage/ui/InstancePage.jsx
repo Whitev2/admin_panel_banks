@@ -33,9 +33,9 @@ export const InstancePage = () => {
       <h1 className="InstancePage__title">{instance?.name}</h1>
 
       {loading && (
-        <p style={{ margin: 'auto' }}>
+        <div style={{ margin: 'auto' }}>
           <MyLoader />
-        </p>
+        </div>
       )}
       {error && <p style={{ margin: 'auto' }}>{error}</p>}
 

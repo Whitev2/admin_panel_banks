@@ -10,7 +10,7 @@ import { MyModal } from '../../../shared/ui/MyModal/MyModal';
 import { CreateInstanceForm } from '../../../widgets/Forms/CreateInstanceForm';
 import { Filters } from './Filters/Filters';
 import { useLogoutUser } from '../../../entities/User';
-import { MyLoader } from '../../../shared/ui/MyLoader/Myloader';
+import { MyLoader } from '../../../shared/ui';
 
 export const InstanciesPage = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -45,9 +45,9 @@ export const InstanciesPage = () => {
       <footer>
         {!loading && error && <p className="InstanciesPage__error">{error}</p>}
         {loading && (
-          <p className="InstanciesPage__loading">
+          <div className="InstanciesPage__loading">
             <MyLoader />
-          </p>
+          </div>
         )}
         {!loading && !error && !instancies.length && (
           <p className="InstanciesPage__loading">There is no instancies</p>

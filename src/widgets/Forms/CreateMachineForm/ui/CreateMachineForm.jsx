@@ -41,12 +41,14 @@ function CreateMachineForm(props) {
         bank_login: bankLogin,
         bank_password: bankPassword,
         proxy_protocol: proxiProtocol,
+        proxy_port: proxiPort,
         proxy_host: proxiHost,
         proxy_login: proxiLogin,
         proxy_password: proxiPassword,
       }),
-    ).unwrap();
-    // .then((res) => props.onHide());
+    )
+      .unwrap()
+      .then((res) => props.onHide());
   };
 
   return (
