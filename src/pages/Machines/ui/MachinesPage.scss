@@ -1,0 +1,34 @@
+@import '../../../shared/styles/index.scss';
+
+.MachinesPage {
+  padding: 60px 40px 40px;
+
+  &__header {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__top-btn {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__title {
+    margin: 20px 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  &__table {
+    &-th,
+    &-td {
+      min-width: 150px;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@import '../../../../shared/styles/index.scss';
+
+.InstanciesTable {
+  @include table;
+}

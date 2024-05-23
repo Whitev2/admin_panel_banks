@@ -1,0 +1,9 @@
+@import '../../shared/styles/index.scss';
+
+.App {
+  &__main {
+    height: calc(100vh - $header-height);
+    display: grid;
+    grid-template-columns: 230px 1fr;
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../../shared/styles/index.scss';
+
+.MySwitcher {
+  width: 40px;
+  border-radius: 25px;
+  background-color: $color-font-light;
+  padding: 4px;
+  cursor: pointer;
+  transition: color ease $transition-duration;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 50%;
+    padding-bottom: 50%;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform ease $transition-duration;
+  }
+
+  &--active {
+    background-color: green;
+    &::after {
+      transform: translateX(100%);
+    }
+  }
+}

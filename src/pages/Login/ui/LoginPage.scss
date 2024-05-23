@@ -1,0 +1,9 @@
+@import '../../../shared/styles/index.scss';
+
+.LoginPage {
+  height: calc(100vh - $header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: -1 / 1;
+}

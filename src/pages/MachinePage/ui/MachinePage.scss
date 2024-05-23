@@ -1,0 +1,51 @@
+@import '../../../shared/styles/index.scss';
+
+.MachinePage {
+  padding: 60px 40px 40px;
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__main {
+    position: relative;
+    padding-block: 40px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    &-key {
+      color: $color-font-primary;
+      font-size: 20px;
+    }
+
+    &-value {
+      color: $color-font-primary;
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+
+  &__buttons {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
+  &__btn {
+    width: 150px;
+  }
+}
