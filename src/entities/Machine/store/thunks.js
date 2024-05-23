@@ -47,9 +47,31 @@ export const update = createAsyncThunk(
 
 export const getTrans = createAsyncThunk(
   'machine/trans',
-  (id, { rejectWithValue }) => {
+  (machineId, { rejectWithValue }) => {
     try {
-      return machine.getTransactionList(id);
+      return machine.getTransactionList(machineId);
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const getLogs = createAsyncThunk(
+  'machine/logs',
+  (machineId, { rejectWithValue }) => {
+    try {
+      return machine.getLogList(machineId);
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const getErrors = createAsyncThunk(
+  'machine/errors',
+  (machineId, { rejectWithValue }) => {
+    try {
+      return machine.getErrorList(machineId);
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

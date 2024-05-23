@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAll, create, update, getOne, getTrans } from './thunks.js';
+import { getAll, create, getTrans, getErrors, getLogs } from './thunks.js';
 import * as responseHanldler from './responseHandlers.js';
 
 const initialState = {
@@ -10,6 +10,9 @@ const initialState = {
   errors: [],
   loading: false,
   error: '',
+  errorTrans: '',
+  errorErrors: '',
+  errorLogs: '',
 };
 
 export const machineSlice = createSlice({
@@ -33,17 +36,17 @@ export const machineSlice = createSlice({
     builder.addCase(create.fulfilled, responseHanldler.create);
     builder.addCase(create.rejected, responseHanldler.create);
 
-    builder.addCase(getOne.pending, responseHanldler.getOne);
-    builder.addCase(getOne.fulfilled, responseHanldler.getOne);
-    builder.addCase(getOne.rejected, responseHanldler.getOne);
+    builder.addCase(getTrans.pending, responseHanldler.getTrans);
+    builder.addCase(getTrans.fulfilled, responseHanldler.getTrans);
+    builder.addCase(getTrans.rejected, responseHanldler.getTrans);
 
-    builder.addCase(update.pending, responseHanldler.update);
-    builder.addCase(update.fulfilled, responseHanldler.update);
-    builder.addCase(update.rejected, responseHanldler.update);
+    builder.addCase(getLogs.pending, responseHanldler.getLogs);
+    builder.addCase(getLogs.fulfilled, responseHanldler.getLogs);
+    builder.addCase(getLogs.rejected, responseHanldler.getLogs);
 
-    builder.addCase(getTrans.pending, responseHanldler.update);
-    builder.addCase(getTrans.fulfilled, responseHanldler.update);
-    builder.addCase(getTrans.rejected, responseHanldler.update);
+    builder.addCase(getErrors.pending, responseHanldler.getErrors);
+    builder.addCase(getErrors.fulfilled, responseHanldler.getErrors);
+    builder.addCase(getErrors.rejected, responseHanldler.getErrors);
   },
 });
 

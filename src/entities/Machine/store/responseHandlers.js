@@ -37,49 +37,53 @@ export const getTrans = (state, action) => {
   switch (action.type) {
     case 'machine/trans/pending':
       state.loading = true;
-      state.error = '';
+      state.errorTrans = '';
       break;
+
     case 'machine/trans/fulfilled':
       state.loading = false;
       state.transactions = action.payload;
       break;
+
     case 'machine/trans/rejected':
+      state.loading = false;
+      state.errorTrans = 'Something went wrong....';
+      break;
+  }
+};
+
+export const getErrors = (state, action) => {
+  switch (action.type) {
+    case 'machine/errors/pending':
+      state.loading = true;
+      state.error = '';
+      break;
+    case 'machine/errors/fulfilled':
+      state.loading = false;
+      state.errors = action.payload;
+      break;
+    case 'machine/errors/rejected':
       state.loading = false;
       state.error = 'Something went wrong....';
       break;
   }
 };
 
-// export const getOne = (state, action) => {
-//   switch (action.type) {
-//     case 'instance/getOne/pending':
-//       state.loading = true;
-//       state.error = '';
-//       break;
-//     case 'instance/getOne/fulfilled':
-//       state.loading = false;
-//       state.instance = action.payload;
-//       break;
-//     case 'instance/getOne/rejected':
-//       state.loading = false;
-//       state.error = action.error.message;
-//       break;
-//   }
-// };
+export const getLogs = (state, action) => {
+  switch (action.type) {
+    case 'machine/logs/pending':
+      state.loading = true;
+      state.errorLogs = '';
+      break;
 
-// export const update = (state, action) => {
-//   switch (action.type) {
-//     case 'instance/update/pending':
-//       state.loading = true;
-//       state.error = '';
-//       break;
-//     case 'instance/update/fulfilled':
-//       state.loading = false;
-//       state.instance = action.payload;
-//       break;
-//     case 'instance/update/rejected':
-//       state.loading = false;
-//       state.error = 'Something went wrong....';
-//       break;
-//   }
-// };
+    case 'machine/logs/fulfilled':
+      state.loading = false;
+      state.logs = action.payload;
+      break;
+
+    case 'machine/logs/rejected':
+      state.loading = false;
+      state.errorLogs = 'Something went wrong....';
+      break;
+  }
+};

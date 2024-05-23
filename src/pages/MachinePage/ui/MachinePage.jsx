@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 import './MachinePage.scss';
@@ -7,10 +7,22 @@ import { MachineErrorTable } from '../../../widgets/Tables/MachineErrorTable';
 import { MachineInfoTable } from '../../../widgets/Tables/MachineInfoTable';
 import { MachineLogTable } from '../../../widgets/Tables/MachineLogTable';
 import { MyLoader } from '../../../shared/ui';
+import * as machine from '../../../entities/Machine';
+import { useParams } from 'react-router-dom';
 
 export const MachinePage = () => {
+  const { machine_id } = useParams();
   const [table, setTable] = useState('Transactions');
-  const { loading } = useSelector((state) => state.machine);
+  const { loading, transactions, errors } = useSelector(
+    (state) => state.machine,
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(machine.getLogs(machine_id));
+    dispatch(machine.getTrans(machine_id));
+    dispatch(machine.getErrors(machine_id));
+  }, []);
 
   return (
     <div className="MachinePage">
@@ -18,11 +30,11 @@ export const MachinePage = () => {
       <header className="MachinePage__header">
         <div className="MachinePage__info">
           <p className="MachinePage__info-key">Transactions</p>
-          <p className="MachinePage__info-value">1070</p>
+          <p className="MachinePage__info-value">{transactions.length}</p>
         </div>
         <div className="MachinePage__info">
           <p className="MachinePage__info-key">Errors</p>
-          <p className="MachinePage__info-value">12</p>
+          <p className="MachinePage__info-value">{errors.length}</p>
         </div>
         <div className="MachinePage__info">
           <p className="MachinePage__info-key">Balance</p>
@@ -55,11 +67,9 @@ export const MachinePage = () => {
           </Button>
         </div>
 
-        {table === 'Transactions' && (
-          <MachineInfoTable data={[1, 2, 3, 4, 5]} />
-        )}
-        {table === 'Errors' && <MachineErrorTable data={[1, 2, 3, 4, 5]} />}
-        {table === 'Logs' && <MachineLogTable data={[1, 2, 3, 4, 5]} />}
+        {table === 'Transactions' && <MachineInfoTable />}
+        {table === 'Errors' && <MachineErrorTable />}
+        {table === 'Logs' && <MachineLogTable />}
         {loading && <MyLoader />}
       </main>
     </div>

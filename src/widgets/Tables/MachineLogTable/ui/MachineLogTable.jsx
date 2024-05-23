@@ -2,8 +2,13 @@ import { useSelector } from 'react-redux';
 import { Form } from 'react-bootstrap';
 import './MachineLogTable.scss';
 
-export const MachineLogTable = ({ data }) => {
-  const { loading, error } = useSelector((state) => state.machine);
+export const MachineLogTable = () => {
+  const { loading, errorLogs, logs } = useSelector((state) => state.machine);
+
+  if (!logs.length) {
+    return <h2 style={{ textAlign: 'center' }}>No logs</h2>;
+  }
+
   return (
     <table className="MachineErrorTable">
       <thead>
@@ -14,7 +19,7 @@ export const MachineLogTable = ({ data }) => {
             </Form>
           </th>
           <th className="MachineLogTable__th" scope="col">
-            Error ID
+            Log ID
           </th>
           <th className="MachineLogTable__th" scope="col">
             Date/time
@@ -24,19 +29,19 @@ export const MachineLogTable = ({ data }) => {
           </th>
         </tr>
       </thead>
-      {!loading && !error && !!data.length && (
+      {!loading && !errorLogs && !!logs.length && (
         <>
-          {data.map((i) => (
-            <tbody key={i}>
+          {logs.map((log) => (
+            <tbody key={log.id}>
               <tr>
                 <td className="MachineLogTable__td">
                   <Form>
                     <Form.Check />
                   </Form>
                 </td>
-                <td className="MachineLogTable__td">41304</td>
-                <td className="MachineLogTable__td">23/09/2022</td>
-                <td className="MachineLogTable__td">Logs here ....</td>
+                <td className="MachineLogTable__td">{log.id}</td>
+                <td className="MachineLogTable__td">{log.createdAt}</td>
+                <td className="MachineLogTable__td">{log.text}</td>
               </tr>
             </tbody>
           ))}

@@ -1,10 +1,16 @@
 import { useSelector } from 'react-redux';
 import { Form } from 'react-bootstrap';
 import './MachineInfoTable.scss';
-import { Link } from 'react-router-dom';
 
-export const MachineInfoTable = ({ data }) => {
-  const { loading, error } = useSelector((state) => state.machine);
+export const MachineInfoTable = () => {
+  const { loading, errorTrans, transactions } = useSelector(
+    (state) => state.machine,
+  );
+
+  if (!transactions.length) {
+    return <h2 style={{ textAlign: 'center' }}>No transactions</h2>;
+  }
+
   return (
     <table className="MachineInfoTable">
       <thead>
@@ -21,27 +27,27 @@ export const MachineInfoTable = ({ data }) => {
             Date
           </th>
           <th className="MachineInfoTable__th" scope="col">
-            {''}
+            UTR
           </th>
           <th className="MachineInfoTable__th" scope="col">
             Payable Amount
           </th>
         </tr>
       </thead>
-      {!loading && !error && !!data.length && (
+      {!loading && !errorTrans && !!transactions.length && (
         <>
-          {data.map((i) => (
-            <tbody key={i}>
+          {transactions.map((tr) => (
+            <tbody key={tr.id}>
               <tr>
                 <td className="MachineInfoTable__td">
                   <Form>
                     <Form.Check />
                   </Form>
                 </td>
-                <td className="MachineInfoTable__td">413040182781</td>
-                <td className="MachineInfoTable__td">23/09/2022</td>
-                <td className="MachineInfoTable__td">Jacob Marcus</td>
-                <td className="MachineInfoTable__td">1,260 INR</td>
+                <td className="MachineInfoTable__td">{tr.upi_id}</td>
+                <td className="MachineInfoTable__td">{tr.date}</td>
+                <td className="MachineInfoTable__td">{tr.utr}</td>
+                <td className="MachineInfoTable__td">{tr.balance}</td>
               </tr>
             </tbody>
           ))}

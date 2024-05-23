@@ -2,8 +2,15 @@ import { useSelector } from 'react-redux';
 import { Form } from 'react-bootstrap';
 import './MachineErrorTable.scss';
 
-export const MachineErrorTable = ({ data }) => {
-  const { loading, error } = useSelector((state) => state.machine);
+export const MachineErrorTable = () => {
+  const { loading, errorErrors, errors } = useSelector(
+    (state) => state.machine,
+  );
+
+  if (!errors.length) {
+    return <h2 style={{ textAlign: 'center' }}>No errors</h2>;
+  }
+
   return (
     <table className="MachineErrorTable">
       <thead>
@@ -24,21 +31,19 @@ export const MachineErrorTable = ({ data }) => {
           </th>
         </tr>
       </thead>
-      {!loading && !error && !!data.length && (
+      {!loading && !errorErrors && !!errors.length && (
         <>
-          {data.map((i) => (
-            <tbody key={i}>
+          {errors.map((er) => (
+            <tbody key={er}>
               <tr>
                 <td className="MachineErrorTable__td">
                   <Form>
                     <Form.Check />
                   </Form>
                 </td>
-                <td className="MachineErrorTable__td">41304</td>
-                <td className="MachineErrorTable__td">23/09/2022</td>
-                <td className="MachineErrorTable__td">
-                  Data has been received, launch initialization
-                </td>
+                <td className="MachineErrorTable__td">{er.id}</td>
+                <td className="MachineErrorTable__td">{er.createdAt}</td>
+                <td className="MachineErrorTable__td">{er.text}</td>
               </tr>
             </tbody>
           ))}
