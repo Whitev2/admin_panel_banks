@@ -1,14 +1,14 @@
 export const create = (state, action) => {
   switch (action.type) {
-    case 'instance/create/pending':
+    case 'machine/create/pending':
       state.loading = true;
       state.error = '';
       break;
-    case 'instance/create/fulfilled':
+    case 'machine/create/fulfilled':
       state.loading = false;
       state.instancies = [action.payload, ...state.instancies];
       break;
-    case 'instance/create/rejected':
+    case 'machine/create/rejected':
       state.loading = false;
       state.error = 'Something went wrong....';
       break;
@@ -33,36 +33,53 @@ export const getAll = (state, action) => {
   }
 };
 
-export const getOne = (state, action) => {
+export const getTrans = (state, action) => {
   switch (action.type) {
-    case 'instance/getOne/pending':
+    case 'machine/trans/pending':
       state.loading = true;
       state.error = '';
       break;
-    case 'instance/getOne/fulfilled':
+    case 'machine/trans/fulfilled':
       state.loading = false;
-      state.instance = action.payload;
+      state.transactions = action.payload;
       break;
-    case 'instance/getOne/rejected':
-      state.loading = false;
-      state.error = action.error.message;
-      break;
-  }
-};
-
-export const update = (state, action) => {
-  switch (action.type) {
-    case 'instance/update/pending':
-      state.loading = true;
-      state.error = '';
-      break;
-    case 'instance/update/fulfilled':
-      state.loading = false;
-      state.instance = action.payload;
-      break;
-    case 'instance/update/rejected':
+    case 'machine/trans/rejected':
       state.loading = false;
       state.error = 'Something went wrong....';
       break;
   }
 };
+
+// export const getOne = (state, action) => {
+//   switch (action.type) {
+//     case 'instance/getOne/pending':
+//       state.loading = true;
+//       state.error = '';
+//       break;
+//     case 'instance/getOne/fulfilled':
+//       state.loading = false;
+//       state.instance = action.payload;
+//       break;
+//     case 'instance/getOne/rejected':
+//       state.loading = false;
+//       state.error = action.error.message;
+//       break;
+//   }
+// };
+
+// export const update = (state, action) => {
+//   switch (action.type) {
+//     case 'instance/update/pending':
+//       state.loading = true;
+//       state.error = '';
+//       break;
+//     case 'instance/update/fulfilled':
+//       state.loading = false;
+//       state.instance = action.payload;
+//       break;
+//     case 'instance/update/rejected':
+//       state.loading = false;
+//       state.error = 'Something went wrong....';
+//       break;
+//   }
+// };

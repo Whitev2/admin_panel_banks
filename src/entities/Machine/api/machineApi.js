@@ -25,13 +25,13 @@ export const createLog = async (data) => {
 };
 
 export const getLogList = async (machine_id) => {
-  return httpClient.get(`machinee/log/list/machine_id=${machine_id}`);
+  return httpClient.get(`machinee/log/list?machine_id=${machine_id}`);
 };
 
 export const getErrList = async (machine_id) => {
-  return httpClient.get(`machinee/error/list/machine_id=${machine_id}`);
+  return httpClient.get(`machinee/error/list?machine_id=${machine_id}`);
 };
 
 export const getTransactionList = async (machine_id) => {
-  return httpClient.get(`machinee/transaction/list/machine_id=${machine_id}`);
+  return httpClient.get(`machinee/transaction/list?machine_id=${machine_id}`);
 };

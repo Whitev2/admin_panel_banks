@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAll, create, update, getOne } from './thunks.js';
+import { getAll, create, update, getOne, getTrans } from './thunks.js';
 import * as responseHanldler from './responseHandlers.js';
 
 const initialState = {
@@ -40,6 +40,10 @@ export const machineSlice = createSlice({
     builder.addCase(update.pending, responseHanldler.update);
     builder.addCase(update.fulfilled, responseHanldler.update);
     builder.addCase(update.rejected, responseHanldler.update);
+
+    builder.addCase(getTrans.pending, responseHanldler.update);
+    builder.addCase(getTrans.fulfilled, responseHanldler.update);
+    builder.addCase(getTrans.rejected, responseHanldler.update);
   },
 });
 
