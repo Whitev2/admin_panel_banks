@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  react-dev:
+    container_name: bank_panel
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+#    volumes:
+#      - ./:/
+#      - .//node_modules:/web/node_modules
+    environment:
+      - NODE_ENV=development
+
+
+networks:
+  net:
+    driver: bridge
