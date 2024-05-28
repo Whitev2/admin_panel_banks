@@ -34,7 +34,7 @@ export const MachineErrorTable = () => {
       {!loading && !errorErrors && !!errors.length && (
         <>
           {errors.map((er) => (
-            <tbody key={er}>
+            <tbody key={er.id}>
               <tr>
                 <td className="MachineErrorTable__td">
                   <Form>
