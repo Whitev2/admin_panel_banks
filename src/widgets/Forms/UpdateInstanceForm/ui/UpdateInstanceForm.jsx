@@ -30,7 +30,7 @@ function UpdateInstanceForm(props) {
 
   return (
     <Form className="UpdateInstanceForm">
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextLogin">
+      <Form.Group as={Row} className="mb-3" controlId="Name">
         <Form.Label column sm="2">
           Name
         </Form.Label>

@@ -14,7 +14,7 @@ export const getAll = (state, action) => {
       break;
     case 'instance/getAll/rejected':
       state.loading = false;
-      state.error = action.error.message;
+      state.error = action.error.message || 'Something went wrong....';
       break;
   }
 };

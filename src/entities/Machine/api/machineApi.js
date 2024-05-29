@@ -9,6 +9,7 @@ export const updateStatus = async (data) => {
 };
 
 export const updateState = async (data) => {
+  console.log(data);
   return httpClient.post('/machine/update/state', data);
 };
 

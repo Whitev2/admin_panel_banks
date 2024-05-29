@@ -51,8 +51,12 @@ export const MachinesTable = ({ machines }) => {
                 <td className="InstanciesTable__td">{m.instance_id}</td>
                 <td className="InstanciesTable__td">{m.project_id}</td>
                 <td className="InstanciesTable__td">{m.status}</td>
-                <td className="InstanciesTable__td">
-                  <MySwitcher />
+                <td className="InstanciesTable__td InstanciesTable__td--switcher">
+                  <MySwitcher
+                    started={m.started}
+                    machineStatus={m.status}
+                    id={m.id}
+                  />
                 </td>
               </tr>
             </tbody>

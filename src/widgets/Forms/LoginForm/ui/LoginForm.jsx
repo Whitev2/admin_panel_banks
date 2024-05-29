@@ -27,7 +27,7 @@ function LoginForm() {
 
   return (
     <Form className="LoginForm">
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextLogin">
+      <Form.Group as={Row} className="mb-3" controlId="Login">
         <Form.Label column sm="2">
           Login
         </Form.Label>
@@ -40,7 +40,7 @@ function LoginForm() {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+      <Form.Group as={Row} className="mb-3" controlId="Password">
         <Form.Label column sm="2">
           Password
         </Form.Label>

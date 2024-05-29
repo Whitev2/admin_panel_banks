@@ -14,7 +14,6 @@ export const UpdateProjectForm = (props) => {
   const [key, setKey] = useState('');
   const [validationError, setValidationError] = useState('');
   const dispatch = useDispatch();
-  console.log(name, key, url);
   const onSubmit = async () => {
     setValidationError('');
 
@@ -37,7 +36,7 @@ export const UpdateProjectForm = (props) => {
 
   return (
     <Form className="CreateProjectForm">
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextLogin">
+      <Form.Group as={Row} className="mb-3" controlId="Name">
         <Form.Label column sm="2">
           Name
         </Form.Label>
@@ -51,7 +50,7 @@ export const UpdateProjectForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Url">
         <Form.Label column sm="2">
           Url
         </Form.Label>
@@ -65,7 +64,7 @@ export const UpdateProjectForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Apiket">
         <Form.Label column sm="2">
           Api key
         </Form.Label>

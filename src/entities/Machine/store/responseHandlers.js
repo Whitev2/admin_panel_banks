@@ -6,11 +6,11 @@ export const create = (state, action) => {
       break;
     case 'machine/create/fulfilled':
       state.loading = false;
-      state.instancies = [action.payload, ...state.instancies];
+      state.instancies = [action.payload, ...state.machines];
       break;
     case 'machine/create/rejected':
       state.loading = false;
-      state.error = 'Something went wrong....';
+      state.error = action.error.message || 'Something went wrong....';
       break;
   }
 };
@@ -22,7 +22,6 @@ export const getAll = (state, action) => {
       state.error = '';
       break;
     case 'machine/getAll/fulfilled':
-      console.log(action);
       state.loading = false;
       state.machines = action.payload;
       break;

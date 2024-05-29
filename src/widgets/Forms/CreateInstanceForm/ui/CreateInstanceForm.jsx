@@ -29,7 +29,7 @@ function CreateInstanceForm(props) {
 
   return (
     <Form className="CreateInstanceForm">
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextLogin">
+      <Form.Group as={Row} className="mb-3" controlId="Name">
         <Form.Label column sm="2">
           Name
         </Form.Label>
@@ -42,7 +42,7 @@ function CreateInstanceForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Host">
         <Form.Label column sm="2">
           Host
         </Form.Label>

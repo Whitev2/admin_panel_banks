@@ -11,6 +11,7 @@ import { useLogoutUser } from '../../../entities/User';
 import { MyLoader } from '../../../shared/ui';
 import { CreateMachineForm } from '../../../widgets/Forms/CreateMachineForm';
 import * as Instance from '../../../entities/Instance';
+import { useScrollbarGutter } from '../../../shared/hooks/useScrollbarGutter';
 
 export const MachinesPage = () => {
   const { id } = useParams();
@@ -33,6 +34,8 @@ export const MachinesPage = () => {
         }
       });
   }, []);
+
+  useScrollbarGutter(loading);
 
   return (
     <div className="MachinesPage">
@@ -66,7 +69,11 @@ export const MachinesPage = () => {
         title="Create machine"
         onHide={() => setModalShow(false)}
       >
-        <CreateMachineForm />
+        <CreateMachineForm
+          onHide={() => {
+            setModalShow(false);
+          }}
+        />
       </MyModal>
     </div>
   );

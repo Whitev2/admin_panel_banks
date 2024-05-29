@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.page {
+  scrollbar-gutter: stable;
+}
+
 .page__content {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;

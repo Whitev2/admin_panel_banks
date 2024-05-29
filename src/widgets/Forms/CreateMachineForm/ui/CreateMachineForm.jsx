@@ -23,7 +23,7 @@ function CreateMachineForm(props) {
   const [proxiLogin, setProxiLogin] = useState('');
   const [proxiPassword, setProxiPassword] = useState('');
   const [validationError, setValidationError] = useState('');
-  let { loading, error } = useSelector((state) => state.instance);
+  let { loading, error } = useSelector((state) => state.machine);
   let { projects, error: projectError } = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
@@ -33,6 +33,7 @@ function CreateMachineForm(props) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    debugger;
     dispatch(
       Machine.create({
         name,
@@ -40,15 +41,15 @@ function CreateMachineForm(props) {
         project_id: project,
         bank_login: bankLogin,
         bank_password: bankPassword,
-        proxy_protocol: proxiProtocol,
-        proxy_port: proxiPort,
-        proxy_host: proxiHost,
-        proxy_login: proxiLogin,
-        proxy_password: proxiPassword,
+        proxy_protocol: proxiProtocol.trim(),
+        proxy_port: proxiPort.trim(),
+        proxy_host: proxiHost.trim(),
+        proxy_login: proxiLogin.trim(),
+        proxy_password: proxiPassword.trim(),
       }),
     )
       .unwrap()
-      .then((res) => props.onHide());
+      .then(() => props.onHide());
   };
 
   return (
@@ -68,7 +69,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="instanceName">
         <Form.Label column sm="4">
           Instance
         </Form.Label>
@@ -84,7 +85,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Project">
         <Form.Label column sm="4">
           Project
         </Form.Label>
@@ -106,7 +107,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Bank">
         <Form.Label column sm="4">
           Bank login
         </Form.Label>
@@ -121,7 +122,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="BankPassword">
         <Form.Label column sm="4">
           Bank password
         </Form.Label>
@@ -136,7 +137,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ProxiProtocol">
         <Form.Label column sm="4">
           Proxi protocol
         </Form.Label>
@@ -151,7 +152,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ProxiHost">
         <Form.Label column sm="4">
           Proxi host
         </Form.Label>
@@ -166,7 +167,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ProxiPort">
         <Form.Label column sm="4">
           Proxi port
         </Form.Label>
@@ -181,7 +182,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ProxiLogin">
         <Form.Label column sm="4">
           Proxi login
         </Form.Label>
@@ -196,7 +197,7 @@ function CreateMachineForm(props) {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ProxiPassword">
         <Form.Label column sm="4">
           Proxi password
         </Form.Label>

@@ -1,5 +1,7 @@
 import machineReducer from './store/machineSlice';
 import * as action from './store/machineSlice';
+import * as machineAPI from './api/machineApi';
+
 import {
   getAll,
   create,
@@ -20,4 +22,5 @@ export {
   getErrors,
   getLogs,
   action,
+  machineAPI,
 };

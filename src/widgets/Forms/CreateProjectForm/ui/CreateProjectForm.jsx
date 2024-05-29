@@ -14,7 +14,6 @@ export const CreateProjectForm = (props) => {
   const [validationError, setValidationError] = useState('');
   let { loading, error } = useSelector((state) => state.project);
   const dispatch = useDispatch();
-  console.log(props);
   const onSubmit = async () => {
     setValidationError('');
 
@@ -26,14 +25,13 @@ export const CreateProjectForm = (props) => {
     dispatch(Project.create({ api_key: key, name, callback_url: url }))
       .unwrap()
       .then((res) => {
-        console.log('sucess');
         props.onHide();
       });
   };
 
   return (
     <Form className="CreateProjectForm">
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextLogin">
+      <Form.Group as={Row} className="mb-3" controlId="Name">
         <Form.Label column sm="2">
           Name
         </Form.Label>
@@ -46,7 +44,7 @@ export const CreateProjectForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="Url">
         <Form.Label column sm="2">
           Url
         </Form.Label>
@@ -59,7 +57,7 @@ export const CreateProjectForm = (props) => {
         </Col>
       </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextHost">
+      <Form.Group as={Row} className="mb-3" controlId="ApiKey">
         <Form.Label column sm="2">
           Api key
         </Form.Label>

@@ -10,7 +10,7 @@ export const getAll = (state, action) => {
       break;
     case 'project/getAll/rejected':
       state.loading = false;
-      state.error = action.error.message;
+      state.error = action.error.message || 'Something went wrong....';
       break;
   }
 };

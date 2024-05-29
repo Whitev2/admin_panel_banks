@@ -3,3 +3,7 @@
 .MachinesTable {
   @include table;
 }
+
+.InstanciesTable__td {
+  outline: 1px solid $color-font-light;
+}
