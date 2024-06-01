@@ -133,6 +133,8 @@ function CreateMachineForm(props) {
             type="password"
             placeholder="Enter passoword"
             onChange={(e) => setBankPassword(e.target.value)}
+            autoComplete="none"
+            autoCapitalize="none"
           />
         </Col>
       </Form.Group>

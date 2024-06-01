@@ -36,6 +36,8 @@ function LoginForm() {
             type="text"
             placeholder="Enter login"
             onChange={(e) => setLogin(e.target.value)}
+            autoComplete="none"
+            autoCapitalize="none"
           />
         </Col>
       </Form.Group>
@@ -49,6 +51,8 @@ function LoginForm() {
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="none"
+            autoCapitalize="none"
           />
         </Col>
       </Form.Group>
