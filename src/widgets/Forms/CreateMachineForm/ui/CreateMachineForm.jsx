@@ -210,6 +210,8 @@ function CreateMachineForm(props) {
             type="password"
             placeholder="Enter proxi password"
             onChange={(e) => setProxiPassword(e.target.value)}
+            autoComplete="none"
+            autoCapitalize="none"
           />
         </Col>
       </Form.Group>
